@@ -20,3 +20,10 @@ Um sistema para reduzir desistências de consultas online, conectando pacientes 
 - JavaScript
 
 ---
+
+## 🚀 Como rodar o projeto
+1. Clone este repositório
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repo.git
+
+---
