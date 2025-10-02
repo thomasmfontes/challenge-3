@@ -1,4 +1,5 @@
 # TELECARE+ 🏥💬
+Projeto feito no Sprint 3 de Front-end da FIAP. O objetivo é criar uma página web funcional usando HTML, CSS e JavaScript, com foco em responsividade e interação com o usuário.
 
 Um sistema para reduzir desistências de consultas online, conectando pacientes e profissionais de saúde de forma simples e acessível.
 
@@ -31,3 +32,5 @@ Um sistema para reduzir desistências de consultas online, conectando pacientes 
 git add README.md
 git commit -m "Ajustes e melhorias no README"
 git push
+
+link do video: https://youtu.be/ykkGb_iOagg?si=2XBsj41m0ZCLAB4Q
