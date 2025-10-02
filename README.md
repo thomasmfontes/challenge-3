@@ -10,3 +10,13 @@ Um sistema para reduzir desistências de consultas online, conectando pacientes 
 - Área de suporte
 
 ---
+
+## 🛠️ Tecnologias utilizadas
+- React + Vite
+- TypeScript
+- Tailwind CSS
+- HTML5
+- CSS3
+- JavaScript
+
+---
