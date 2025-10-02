@@ -152,8 +152,7 @@ export default function Integrantes() {
             Nenhum integrante encontrado
           </h2>
           <p className="mt-1 text-sm text-slate-600">
-            Ajuste a busca ou adicione integrantes em{" "}
-            <code className="font-mono">/src/data/integrantes.json</code>.
+            Ajuste a busca.
           </p>
         </div>
       )}
