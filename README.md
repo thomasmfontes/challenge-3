@@ -1,4 +1,5 @@
 # TELECARE+ 🏥💬
+Projeto feito no Sprint 3 de Front-end da FIAP. O objetivo é criar uma página web funcional usando HTML, CSS e JavaScript, com foco em responsividade e interação com o usuário.
 
 Um sistema para reduzir desistências de consultas online, conectando pacientes e profissionais de saúde de forma simples e acessível.
 
