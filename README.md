@@ -27,3 +27,7 @@ Um sistema para reduzir desistências de consultas online, conectando pacientes 
    git clone https://github.com/seu-usuario/seu-repo.git
 
 ---
+
+git add README.md
+git commit -m "Ajustes e melhorias no README"
+git push
