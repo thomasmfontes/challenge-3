@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import type { SubmitHandler } from 'react-hook-form';
 import { useState } from "react";
+import Input from "../components/Input";
+import Textarea from "../components/Textarea";
+import Button from "../components/Button";
 
 type FormContato = {
   nome: string;
@@ -62,115 +65,98 @@ export default function Contato() {
 
           {/* Nome */}
           <div>
-            <label htmlFor="nome" className="block text-sm font-medium text-slate-800">
-              Nome <span className="text-rose-600">*</span>
-            </label>
-            <input
-              id="nome"
-              type="text"
-              placeholder="Seu nome completo"
-              aria-invalid={!!errors.nome || undefined}
-              {...register("nome", {
+            {(() => {
+              const { ref: nomeRef, ...nomeReg } = register("nome", {
                 required: "Informe seu nome.",
                 minLength: { value: 3, message: "Mínimo de 3 caracteres." },
-              })}
-              className={`mt-1 w-full rounded-lg border p-2.5 outline-none transition
-                ${
-                  errors.nome
-                    ? "border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
-                    : "border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
-                }`}
-            />
-            {errors.nome && (
-              <p className="mt-1 text-sm text-rose-600">{errors.nome.message}</p>
-            )}
+              });
+              return (
+                <Input
+                  id="nome"
+                  type="text"
+                  label="Nome"
+                  required
+                  placeholder="Seu nome completo"
+                  error={errors.nome?.message}
+                  inputRef={nomeRef}
+                  {...nomeReg}
+                />
+              );
+            })()}
           </div>
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-slate-800">
-              E-mail <span className="text-rose-600">*</span>
-            </label>
-            <input
-              id="email"
-              type="email"
-              placeholder="voce@exemplo.com"
-              aria-invalid={!!errors.email || undefined}
-              {...register("email", {
+            {(() => {
+              const { ref: emailRef, ...emailReg } = register("email", {
                 required: "Informe seu e-mail.",
                 pattern: {
                   value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   message: "E-mail inválido.",
                 },
-              })}
-              className={`mt-1 w-full rounded-lg border p-2.5 outline-none transition
-                ${
-                  errors.email
-                    ? "border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
-                    : "border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
-                }`}
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-rose-600">{errors.email.message}</p>
-            )}
+              });
+              return (
+                <Input
+                  id="email"
+                  type="email"
+                  label="E-mail"
+                  required
+                  placeholder="voce@exemplo.com"
+                  error={errors.email?.message}
+                  inputRef={emailRef}
+                  {...emailReg}
+                />
+              );
+            })()}
           </div>
 
           {/* Assunto (opcional) */}
           <div>
-            <label htmlFor="assunto" className="block text-sm font-medium text-slate-800">
-              Assunto
-            </label>
-            <input
-              id="assunto"
-              type="text"
-              placeholder="Assunto da mensagem"
-              {...register("assunto")}
-              className="mt-1 w-full rounded-lg border border-slate-300 p-2.5 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
-            />
+            {(() => {
+              const { ref: assuntoRef, ...assuntoReg } = register("assunto");
+              return (
+                <Input
+                  id="assunto"
+                  type="text"
+                  label="Assunto"
+                  placeholder="Assunto da mensagem"
+                  inputRef={assuntoRef}
+                  {...assuntoReg}
+                />
+              );
+            })()}
           </div>
 
           {/* Mensagem */}
           <div>
-            <label htmlFor="mensagem" className="block text-sm font-medium text-slate-800">
-              Mensagem <span className="text-rose-600">*</span>
-            </label>
-            <textarea
-              id="mensagem"
-              placeholder="Como podemos ajudar?"
-              rows={5}
-              aria-invalid={!!errors.mensagem || undefined}
-              {...register("mensagem", {
+            {(() => {
+              const { ref: msgRef, ...msgReg } = register("mensagem", {
                 required: "Descreva sua mensagem.",
                 minLength: { value: 10, message: "Mínimo de 10 caracteres." },
-              })}
-              className={`mt-1 w-full rounded-lg border p-2.5 outline-none transition
-                ${
-                  errors.mensagem
-                    ? "border-rose-400 focus:border-rose-500 focus:ring-2 focus:ring-rose-200"
-                    : "border-slate-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200"
-                }`}
-            />
-            {errors.mensagem && (
-              <p className="mt-1 text-sm text-rose-600">{errors.mensagem.message}</p>
-            )}
+              });
+              return (
+                <Textarea
+                  id="mensagem"
+                  label="Mensagem"
+                  required
+                  placeholder="Como podemos ajudar?"
+                  rows={5}
+                  error={errors.mensagem?.message}
+                  textareaRef={msgRef}
+                  {...msgReg}
+                />
+              );
+            })()}
           </div>
 
           {/* Ações */}
           <div className="mt-2 flex items-center gap-3">
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-2.5 font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-70"
-            >
-              {isSubmitting ? "Enviando..." : "Enviar"}
-            </button>
-            <button
-              type="button"
-              onClick={() => reset()}
-              className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-2.5 font-semibold text-slate-800 transition hover:bg-slate-50"
-            >
+            <Button type="submit" variant="primary" loading={isSubmitting} loadingText="Enviando...">
+              Enviar
+            </Button>
+            <Button type="button" variant="secondary" onClick={() => reset()}>
               Limpar
-            </button>
+            </Button>
           </div>
 
           <p className="text-xs text-slate-500">
